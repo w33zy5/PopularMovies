@@ -1,0 +1,158 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <RelativeLayout
+        android:id="@+id/activity_detail_movie"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <TextView
+            android:id="@+id/tv_title_movie"
+            android:ellipsize="end"
+            android:maxLines="1"
+            android:layout_marginTop="@dimen/margin_text"
+            android:layout_marginLeft="@dimen/margin_text"
+            android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+
+        <RelativeLayout
+            android:id="@+id/container"
+            android:layout_below="@id/tv_title_movie"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <ImageView
+                android:id="@+id/iv_backdrop"
+                android:layout_margin="@dimen/margin_text"
+                android:scaleType="centerCrop"
+                android:adjustViewBounds="true"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content" />
+
+            <ImageView
+                android:id="@+id/iv_favorite"
+                android:layout_marginRight="@dimen/margin_cards"
+                android:layout_marginTop="@dimen/margin_cards"
+                android:layout_alignEnd="@id/iv_backdrop"
+                android:layout_alignRight="@id/iv_backdrop"
+                android:layout_alignTop="@id/iv_backdrop"
+                android:onClick="onChangedFavorite"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" />
+
+        </RelativeLayout>
+        
+        <TextView
+            android:id="@+id/tv_rating"
+            android:layout_below="@id/container"
+            android:layout_marginLeft="@dimen/margin_text"
+            android:layout_marginTop="@dimen/margin_text"
+            android:textSize="@dimen/text_small"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+        
+        <TextView
+            android:id="@+id/tv_release_date"
+            android:layout_below="@id/tv_rating"
+            android:layout_marginStart="@dimen/margin_text"
+            android:layout_marginLeft="@dimen/margin_text"
+            android:textSize="@dimen/text_small"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+        
+        <TextView
+            android:id="@+id/tv_overview"
+            android:layout_below="@id/tv_release_date"
+            android:layout_marginRight="@dimen/margin_text"
+            android:layout_marginLeft="@dimen/margin_text"
+            android:layout_marginTop="@dimen/margin_text"
+            android:textSize="@dimen/text_medium"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" />
+
+        <TextView
+            android:id="@+id/tv_trailers"
+            android:layout_below="@id/tv_overview"
+            android:layout_marginLeft="@dimen/margin_cards"
+            android:layout_marginRight="@dimen/margin_cards"
+            android:layout_marginTop="15dp"
+            android:background="@color/colorPrimary"
+            android:text="@string/subtitle_trailers"
+            android:padding="5dp"
+            android:textColor="@android:color/white"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+
+        <android.support.v7.widget.RecyclerView
+            android:id="@+id/rv_trailers"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/tv_trailers"
+            android:layout_marginLeft="@dimen/margin_cards"
+            android:layout_marginRight="@dimen/margin_cards"
+            android:orientation="horizontal" />
+
+        <TextView
+            android:id="@+id/empty_trailers"
+            android:layout_below="@id/rv_trailers"
+            android:gravity="center"
+            android:visibility="gone"
+            android:text="@string/no_trailers_found"
+            android:layout_margin="@dimen/vertical_margin"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" />
+
+        <View
+            android:layout_below="@id/tv_trailers"
+            android:layout_marginLeft="@dimen/margin_cards"
+            android:layout_marginRight="@dimen/margin_cards"
+            android:layout_width="match_parent"
+            android:layout_height="0.5dp"
+            android:background="@color/colorPrimary"/>
+
+        <TextView
+            android:id="@+id/tv_reviews"
+            android:layout_below="@id/empty_trailers"
+            android:layout_marginLeft="@dimen/margin_cards"
+            android:layout_marginRight="@dimen/margin_cards"
+            android:layout_marginTop="15dp"
+            android:background="@color/colorPrimary"
+            android:padding="5dp"
+            android:text="Reviews"
+            android:textColor="@android:color/white"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+
+        <View
+            android:layout_below="@id/tv_reviews"
+            android:layout_marginLeft="@dimen/margin_cards"
+            android:layout_marginRight="@dimen/margin_cards"
+            android:layout_width="match_parent"
+            android:layout_height="0.5dp"
+            android:background="@color/colorPrimary"/>
+
+        <android.support.v7.widget.RecyclerView
+            android:id="@+id/rv_reviews"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/tv_reviews"
+            android:layout_marginLeft="@dimen/margin_cards"
+            android:layout_marginRight="@dimen/margin_cards"
+            android:orientation="horizontal" />
+
+        <TextView
+            android:id="@+id/empty_review"
+            android:layout_below="@id/rv_reviews"
+            android:layout_margin="@dimen/vertical_margin"
+            android:gravity="center"
+            android:visibility="gone"
+            android:text="@string/no_reviews_found"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" />
+
+    </RelativeLayout>
+
+</ScrollView>
