@@ -20,5 +20,6 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
 
         mCriteriaOrder = utils.getPreferredOrder(this);
+
     }
 }
