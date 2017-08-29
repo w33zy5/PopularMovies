@@ -24,6 +24,8 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.dewaagung.popularmovies.data.PopularMovieContract;
+import com.example.dewaagung.popularmovies.domains.Review;
+import com.example.dewaagung.popularmovies.domains.Trailer;
 import com.squareup.picasso.Picasso;
 
 import java.text.DateFormat;
@@ -31,6 +33,7 @@ import java.util.ArrayList;
 import java.util.Locale;
 
 import static com.example.dewaagung.popularmovies.MainActivity.KEY_ARG_MOVIE;
+import static com.example.dewaagung.popularmovies.utils.MovieDBAPI.URL_IMAGE;
 import static java.security.AccessController.getContext;
 
 /**
@@ -113,7 +116,6 @@ public class FragmentDetailMovie extends Fragment {
                             activity.onMovieChanged(fm.getMovieAdapter().getFirstMovie());
                         }
                     }
-
                 } else {
                     holder.iv_star.setImageResource(FAVORITE_ON_ID);
                     mMovie.setFavorite(true);
@@ -159,6 +161,7 @@ public class FragmentDetailMovie extends Fragment {
 
     @Override
     public void onCreateOptionsMenu(Menu menu, MenuInflater inflater) {
+
         inflater.inflate(R.menu.detailfragment, menu);
 
         MenuItem menuItem = menu.findItem(R.id.menu_item_share);
@@ -217,7 +220,6 @@ public class FragmentDetailMovie extends Fragment {
         }
     }
 
-
     class MyTrailerReceiver extends ResultReceiver {
 
         public MyTrailerReceiver(Handler handler) {
@@ -274,8 +276,6 @@ public class FragmentDetailMovie extends Fragment {
 
     class ViewHolder {
         ImageView iv_backdrop;
-//        ImageView iv_poster;
-
         ImageView iv_star;
         TextView tv_title_movie;
         TextView tv_overview;
@@ -286,7 +286,6 @@ public class FragmentDetailMovie extends Fragment {
 
         public ViewHolder(View view) {
             this.iv_backdrop = ((ImageView) view.findViewById(R.id.iv_backdrop));
-//            this.iv_poster = ((ImageView) view.findViewById(R.id.iv_poster));
             this.iv_star = (ImageView) view.findViewById(R.id.iv_favorite);
             this.tv_title_movie = (TextView) view.findViewById(R.id.tv_title_movie);
             this.tv_overview = (TextView) view.findViewById(R.id.tv_overview);
@@ -297,4 +296,3 @@ public class FragmentDetailMovie extends Fragment {
         }
     }
 }
-

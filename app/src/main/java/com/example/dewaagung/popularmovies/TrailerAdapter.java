@@ -11,6 +11,8 @@ import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import com.example.dewaagung.popularmovies.domains.Trailer;
+
 import java.util.ArrayList;
 
 /**
