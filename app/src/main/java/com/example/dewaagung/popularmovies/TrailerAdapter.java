@@ -40,7 +40,6 @@ public class TrailerAdapter extends RecyclerView.Adapter<TrailerAdapter.MyViewHo
         LayoutInflater layoutInflater = (LayoutInflater) mContext.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
         View view = layoutInflater.inflate(R.layout.trailer, parent, false);
         return new MyViewHolder(view);
-
     }
 
     @Override
@@ -60,7 +59,6 @@ public class TrailerAdapter extends RecyclerView.Adapter<TrailerAdapter.MyViewHo
         });
     }
 
-
     public Trailer getFirstTrailer() {
         if (mTrailers != null && !mTrailers.isEmpty())
             return mTrailers.get(0);
@@ -74,19 +72,16 @@ public class TrailerAdapter extends RecyclerView.Adapter<TrailerAdapter.MyViewHo
     }
 
     public void clear() {
-        // clear a list of movies
         mTrailers.clear();
         notifyDataSetChanged();
     }
 
-    // adding elements in list.
     public void add(Trailer trailer) {
         if (trailer != null) {
             mTrailers.add(trailer);
             notifyItemInserted(mTrailers.size() - 1);
         }
     }
-
 
     public class MyViewHolder extends RecyclerView.ViewHolder {
 
@@ -98,8 +93,6 @@ public class TrailerAdapter extends RecyclerView.Adapter<TrailerAdapter.MyViewHo
             title = (TextView) itemView.findViewById(R.id.title);
             imageView = (ImageView) itemView.findViewById(R.id.iv_video);
         }
-
     }
-
 }
 

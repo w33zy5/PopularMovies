@@ -27,7 +27,7 @@ public class PopularMovieProvider extends ContentProvider {
 
         sURIMatcher.addURI(PopularMovieContract.CONTENT_AUTHORITY, PopularMovieContract.PATH_MOVIE, MOVIES);
         sURIMatcher.addURI(PopularMovieContract.CONTENT_AUTHORITY, PopularMovieContract.PATH_MOVIE + "/*", MOVIE_FAVORITE);
-//
+
         return sURIMatcher;
     }
 

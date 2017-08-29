@@ -1,10 +1,10 @@
 package com.example.dewaagung.popularmovies;
 
 import android.content.Intent;
-import android.graphics.Movie;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 
+import com.example.dewaagung.popularmovies.domains.Movie;
 import com.example.dewaagung.popularmovies.utils.utils;
 
 import static com.example.dewaagung.popularmovies.MainActivity.KEY_ARG_MOVIE;
@@ -15,6 +15,7 @@ import static com.example.dewaagung.popularmovies.MainActivity.KEY_ARG_MOVIE;
 
 public class DetailMovieActivity extends AppCompatActivity {
 
+
     FragmentDetailMovie fragmentDetailMovie;
     private static final String LOG_TAG = DetailMovieActivity.class.getSimpleName();
 
@@ -24,7 +25,7 @@ public class DetailMovieActivity extends AppCompatActivity {
         setContentView(R.layout.activity_detail_movie);
         Intent intent = getIntent();
         Movie movie;
-        if (intent != null && intent.hasExtra(Intent.EXTRA_TEXT)){
+        if (intent != null && intent.hasExtra(Intent.EXTRA_TEXT)) {
             movie = (Movie) intent.getSerializableExtra(Intent.EXTRA_TEXT);
 
             Bundle arguments = new Bundle();
@@ -39,7 +40,6 @@ public class DetailMovieActivity extends AppCompatActivity {
             }
         }
     }
-
     @Override
     protected void onStart() {
         super.onStart();
@@ -48,4 +48,5 @@ public class DetailMovieActivity extends AppCompatActivity {
             fragmentDetailMovie.updateReviews();
         }
     }
+
 }

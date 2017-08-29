@@ -4,16 +4,17 @@ import android.content.ContentValues;
 import android.database.Cursor;
 import android.text.format.Time;
 
-import com.example.dewaagung.popularmovies.data.PopularMovieContract;
-
 import java.io.Serializable;
 import java.util.Date;
+
+import com.example.dewaagung.popularmovies.data.PopularMovieContract;
 
 /**
  * Created by Dewa Agung on 30/08/17.
  */
 
 public class Movie implements Serializable {
+
     private long movie_id;
     private String title;
     private String path_poster;
@@ -24,7 +25,7 @@ public class Movie implements Serializable {
     private Date releaseDate;
     private boolean favorite;
 
-    public Movie(Cursor cursor){
+    public Movie(Cursor cursor) {
         movie_id = cursor.getInt(cursor.getColumnIndex(PopularMovieContract.MovieEntry._ID));
         title = cursor.getString(cursor.getColumnIndex(PopularMovieContract.MovieEntry.COLUMN_TITLE));
         overview = cursor.getString(cursor.getColumnIndex(PopularMovieContract.MovieEntry.COLUMN_OVERVIEW));
@@ -36,6 +37,7 @@ public class Movie implements Serializable {
         releaseDate = new Date(julianDay);
         favorite = true;
     }
+
     public Movie() {
     }
 
@@ -128,5 +130,4 @@ public class Movie implements Serializable {
 
         return values;
     }
-
 }

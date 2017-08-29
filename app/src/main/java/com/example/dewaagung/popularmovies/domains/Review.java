@@ -1,10 +1,12 @@
 package com.example.dewaagung.popularmovies.domains;
 
+import java.io.Serializable;
+
 /**
  * Created by Dewa Agung on 30/08/17.
  */
 
-public class Review {
+public class Review implements Serializable {
     private String author;
     private String content;
 

@@ -6,7 +6,6 @@
         android:key="@string/key_pref_order"
         android:entries="@array/pref_order"
         android:entryValues="@array/value_pref_order"
-        android:defaultValue="@string/value_default_pref_order"
-        />
+        android:defaultValue="@string/value_default_pref_order" />
 
 </PreferenceScreen>

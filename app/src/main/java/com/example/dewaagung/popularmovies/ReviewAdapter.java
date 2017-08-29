@@ -51,19 +51,16 @@ public class ReviewAdapter extends RecyclerView.Adapter<ReviewAdapter.MyViewHold
 
 
     public void clear() {
-        // clear a list of movies
         mReviews.clear();
         notifyDataSetChanged();
     }
 
-    // adding elements in list.
     public void add(Review review) {
         if (review != null) {
             mReviews.add(review);
             notifyItemInserted(mReviews.size() - 1);
         }
     }
-
 
     public class MyViewHolder extends RecyclerView.ViewHolder {
 
@@ -75,7 +72,6 @@ public class ReviewAdapter extends RecyclerView.Adapter<ReviewAdapter.MyViewHold
             tv_content = (TextView) itemView.findViewById(R.id.review_content);
             tv_author = (TextView) itemView.findViewById(R.id.review_author);
         }
-
     }
 }
 

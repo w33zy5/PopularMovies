@@ -2,7 +2,6 @@ package com.example.dewaagung.popularmovies;
 
 import android.content.Intent;
 import android.database.Cursor;
-import android.graphics.Movie;
 import android.os.Bundle;
 import android.os.Handler;
 import android.support.annotation.Nullable;
@@ -12,7 +11,6 @@ import android.support.v4.view.MenuItemCompat;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.ShareActionProvider;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuInflater;
@@ -21,11 +19,12 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import com.example.dewaagung.popularmovies.data.PopularMovieContract;
 import com.example.dewaagung.popularmovies.domains.Review;
 import com.example.dewaagung.popularmovies.domains.Trailer;
+import com.example.dewaagung.popularmovies.service.ReviewsService;
+import com.example.dewaagung.popularmovies.service.TrailersService;
 import com.squareup.picasso.Picasso;
 
 import java.text.DateFormat;
@@ -33,8 +32,10 @@ import java.util.ArrayList;
 import java.util.Locale;
 
 import static com.example.dewaagung.popularmovies.MainActivity.KEY_ARG_MOVIE;
-import static com.example.dewaagung.popularmovies.utils.MovieDBAPI.URL_IMAGE;
-import static java.security.AccessController.getContext;
+import static com.example.dewaagung.popularmovies.service.ReviewsService.KEY_RECEIVER;
+import static com.example.dewaagung.popularmovies.service.TrailersService.KEY_RESULT_TRAILERS;
+import static com.example.dewaagung.popularmovies.utils.TheMoviesDBAPI.URL_IMAGE;
+import com.example.dewaagung.popularmovies.domains.Movie;
 
 /**
  * Created by Dewa Agung on 30/08/17.
@@ -69,8 +70,6 @@ public class FragmentDetailMovie extends Fragment {
         View rootView = inflater.inflate(R.layout.fragment_detail_movie, container, false);
         ViewHolder viewHolder = new ViewHolder(rootView);
         rootView.setTag(viewHolder);
-
-
         return rootView;
     }
 
@@ -105,7 +104,6 @@ public class FragmentDetailMovie extends Fragment {
                 if (mMovie.isFavorite()) {
                     holder.iv_star.setImageResource(FAVORITE_OFF_ID);
                     mMovie.setFavorite(false);
-                    // remove
                     getContext().getContentResolver().delete(PopularMovieContract.MovieEntry.CONTENT_URI, PopularMovieContract.MovieEntry._ID + " = " + mMovie.getMovieId(), null);
 
                     if (getActivity().getSupportFragmentManager().findFragmentById(R.id.fragment_movie) != null) { // update fragments
@@ -116,6 +114,7 @@ public class FragmentDetailMovie extends Fragment {
                             activity.onMovieChanged(fm.getMovieAdapter().getFirstMovie());
                         }
                     }
+
                 } else {
                     holder.iv_star.setImageResource(FAVORITE_ON_ID);
                     mMovie.setFavorite(true);
@@ -191,10 +190,7 @@ public class FragmentDetailMovie extends Fragment {
     public void updateReviews() {
 
         try {
-
-
             MyReviewReceiver reviewReceiver = new MyReviewReceiver(new Handler());
-
             Intent intent = new Intent(getActivity(), ReviewsService.class);
             intent.putExtra(ReviewsService.MOVIE_ID_QUERY_EXTRA, String.valueOf(mMovie.getMovieId()));
             intent.putExtra(KEY_RECEIVER, reviewReceiver);
@@ -219,6 +215,7 @@ public class FragmentDetailMovie extends Fragment {
             e.printStackTrace();
         }
     }
+
 
     class MyTrailerReceiver extends ResultReceiver {
 

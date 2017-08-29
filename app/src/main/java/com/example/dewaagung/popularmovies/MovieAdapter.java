@@ -3,7 +3,6 @@ package com.example.dewaagung.popularmovies;
 import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
-import android.graphics.Movie;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -14,7 +13,8 @@ import com.squareup.picasso.Picasso;
 
 import java.util.ArrayList;
 
-import static com.example.dewaagung.popularmovies.utils.MovieDBAPI.URL_IMAGE;
+import static com.example.dewaagung.popularmovies.utils.TheMoviesDBAPI.URL_IMAGE;
+import com.example.dewaagung.popularmovies.domains.Movie;
 
 /**
  * Created by Dewa Agung on 30/08/17.
@@ -59,7 +59,6 @@ public class MovieAdapter extends RecyclerView.Adapter<MovieAdapter.MyViewHolder
                 }
             }
         });
-
     }
 
     @Override
