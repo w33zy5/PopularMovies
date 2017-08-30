@@ -137,7 +137,7 @@ public class FragmentDetailMovie extends Fragment {
 
         holder.rv_trailers.setAdapter(mTrailerAdapter);
         holder.rv_reviews.setAdapter(mReviewAdapter);
-//
+
         if (savedInstanceState != null) {
             updateTrailers();
             updateReviews();
