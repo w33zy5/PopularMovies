@@ -45,4 +45,3 @@ public class PopularMovieDbHelper extends SQLiteOpenHelper {
         onCreate(db);
     }
 }
-

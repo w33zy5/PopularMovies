@@ -1,6 +1,5 @@
 package com.example.dewaagung.popularmovies.data;
 
-import android.annotation.TargetApi;
 import android.content.ContentProvider;
 import android.content.ContentValues;
 import android.content.UriMatcher;
@@ -14,7 +13,7 @@ import android.support.annotation.Nullable;
  */
 
 public class PopularMovieProvider extends ContentProvider {
-    
+
     private static final UriMatcher sUriMatcher = buildUriMatcher();
     private PopularMovieDbHelper mOpenHelper;
 
@@ -27,7 +26,6 @@ public class PopularMovieProvider extends ContentProvider {
 
         sURIMatcher.addURI(PopularMovieContract.CONTENT_AUTHORITY, PopularMovieContract.PATH_MOVIE, MOVIES);
         sURIMatcher.addURI(PopularMovieContract.CONTENT_AUTHORITY, PopularMovieContract.PATH_MOVIE + "/*", MOVIE_FAVORITE);
-
         return sURIMatcher;
     }
 
@@ -191,12 +189,5 @@ public class PopularMovieProvider extends ContentProvider {
             default:
                 return super.bulkInsert(uri, values);
         }
-    }
-
-    @Override
-    @TargetApi(11)
-    public void shutdown() {
-        mOpenHelper.close();
-        super.shutdown();
     }
 }
