@@ -71,7 +71,6 @@ public class FragmentDetailMovie extends Fragment {
         ViewHolder viewHolder = new ViewHolder(rootView);
         rootView.setTag(viewHolder);
 
-
         return rootView;
     }
 
@@ -169,7 +168,6 @@ public class FragmentDetailMovie extends Fragment {
 
         if (createShareTrailerIntent() != null)
             mShareActionProvider.setShareIntent(createShareTrailerIntent());
-
     }
 
     private Intent createShareTrailerIntent() {
@@ -179,7 +177,7 @@ public class FragmentDetailMovie extends Fragment {
                 Intent shareIntent = new Intent(Intent.ACTION_SEND);
                 shareIntent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_WHEN_TASK_RESET);
                 shareIntent.setType("text/plain");
-                shareIntent.putExtra(Intent.EXTRA_TEXT, trailer.getName() + ": " + TrailerAdapter.PATH_YOUTUBE + trailer.getKey());
+                shareIntent.putExtra(Intent.EXTRA_TEXT, "Title : " + mMovie.getTitle() + "Trailer : " + trailer.getName() + ": " + TrailerAdapter.PATH_YOUTUBE + trailer.getKey());
                 return shareIntent;
             }
         }
@@ -215,7 +213,6 @@ public class FragmentDetailMovie extends Fragment {
             e.printStackTrace();
         }
     }
-
 
     class MyTrailerReceiver extends ResultReceiver {
 
