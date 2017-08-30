@@ -6,6 +6,8 @@ import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
 import android.preference.PreferenceManager;
 
+import com.example.dewaagung.popularmovies.R;
+
 import static android.R.attr.value;
 
 /**
@@ -14,23 +16,24 @@ import static android.R.attr.value;
 
 public class utils {
 
-    public static String getPreferredOrder(Context context){
+    public static String getPreferredOrder(Context context) {
         SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(context);
-        return prefs.getString("order_movies", "most_popular");
+        return prefs.getString(context.getString(R.string.key_pref_order),
+                context.getString(R.string.value_default_pref_order));
+    }
+    public static void setPreferredOrder(Context context, String value) {
+        SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(context);
+
+        prefs.edit().putString(context.getString(R.string.key_pref_order), value).commit();
     }
 
-    public static void setPreferredOrder(Context context, String value){
-        SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(context);
-
-        prefs.edit().putString("order_movies", value).commit();
-    }
-
-    public static boolean checkConnection(Context context){
-        ConnectivityManager conMgr = (ConnectivityManager) context.getSystemService(Context.CONNECTIVITY_SERVICE);
+    public static boolean checkConnection(Context context) {
+        ConnectivityManager conMgr = (ConnectivityManager) context
+                .getSystemService(Context.CONNECTIVITY_SERVICE);
         NetworkInfo i = conMgr.getActiveNetworkInfo();
-        if(i == null)
+        if (i == null)
             return false;
-        if(!i.isConnected())
+        if (!i.isConnected())
             return false;
         return i.isAvailable();
     }

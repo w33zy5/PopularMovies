@@ -75,9 +75,7 @@ public class MainActivity extends AppCompatActivity {
                     onMovieChanged(fm.getMovieAdapter().getFirstMovie());
             }
         }
-
         mCriteriaOrder = criteria;
-
     }
 
     @Override
@@ -86,14 +84,13 @@ public class MainActivity extends AppCompatActivity {
         return super.onCreateOptionsMenu(menu);
     }
 
-
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
         switch (item.getItemId()) {
+
             case R.id.menu_item_settings:
                 startActivity(new Intent(this, SettingsActivity.class));
                 break;
-
             case R.id.it_popular:
                 utils.setPreferredOrder(getApplicationContext(), getString(R.string.value_default_pref_order));
                 onResume();
@@ -106,10 +103,7 @@ public class MainActivity extends AppCompatActivity {
                 utils.setPreferredOrder(getApplicationContext(), getString(R.string.value_favorites_pref_order));
                 onResume();
                 break;
-
         }
-
         return super.onOptionsItemSelected(item);
     }
-
 }

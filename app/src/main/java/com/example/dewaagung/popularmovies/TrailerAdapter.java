@@ -34,7 +34,6 @@ public class TrailerAdapter extends RecyclerView.Adapter<TrailerAdapter.MyViewHo
         mLayoutInflater = (LayoutInflater) mContext.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
     }
 
-
     @Override
     public TrailerAdapter.MyViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
         LayoutInflater layoutInflater = (LayoutInflater) mContext.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
@@ -63,7 +62,6 @@ public class TrailerAdapter extends RecyclerView.Adapter<TrailerAdapter.MyViewHo
         if (mTrailers != null && !mTrailers.isEmpty())
             return mTrailers.get(0);
         else return null;
-
     }
 
     @Override
@@ -95,4 +93,3 @@ public class TrailerAdapter extends RecyclerView.Adapter<TrailerAdapter.MyViewHo
         }
     }
 }
-

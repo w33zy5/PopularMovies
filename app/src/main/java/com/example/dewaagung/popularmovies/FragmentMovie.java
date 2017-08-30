@@ -38,7 +38,6 @@ public class FragmentMovie extends Fragment {
     private int mPosition;
     public static final String SELECTED_KEY = "selected_position";
 
-
     @Nullable
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
@@ -52,6 +51,7 @@ public class FragmentMovie extends Fragment {
         recyclerView.setLayoutManager(gridLayoutManager);
 
         mMovieAdapter = new MovieAdapter(getActivity(), new ArrayList<Movie>());
+
         recyclerView.setAdapter(mMovieAdapter);
 
         if (savedInstanceState != null && savedInstanceState.containsKey(SELECTED_KEY)) {
@@ -68,9 +68,7 @@ public class FragmentMovie extends Fragment {
         updateMoviesTask();
 
         super.onViewCreated(view, savedInstanceState);
-
     }
-
 
     public void setPosition(int mPosition) {
         this.mPosition = mPosition;

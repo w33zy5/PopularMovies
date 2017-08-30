@@ -18,7 +18,7 @@
     <string name="no_reviews_found">No reviews found.</string>
     <string name="no_trailers_found">No trailers found.</string>
 
-    <string name="content_authority" translatable="false">br.com.etm.popularmovies</string>
+    <string name="content_authority" translatable="false">com.example.dewaagung.popularmovies</string>
 
     <string name="rating_movie">Rating: <xliff:g id="rating"> %.1f</xliff:g>/10 ( <xliff:g id="vote_count"> %d </xliff:g> )</string>
 

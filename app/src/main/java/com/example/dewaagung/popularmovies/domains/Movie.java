@@ -24,7 +24,7 @@ public class Movie implements Serializable {
     private int vote_count;
     private Date releaseDate;
     private boolean favorite;
-
+    
     public Movie(Cursor cursor) {
         movie_id = cursor.getInt(cursor.getColumnIndex(PopularMovieContract.MovieEntry._ID));
         title = cursor.getString(cursor.getColumnIndex(PopularMovieContract.MovieEntry.COLUMN_TITLE));

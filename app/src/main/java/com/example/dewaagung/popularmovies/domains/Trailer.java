@@ -1,12 +1,10 @@
 package com.example.dewaagung.popularmovies.domains;
 
-import java.io.Serializable;
-
 /**
  * Created by Dewa Agung on 30/08/17.
  */
 
-public class Trailer implements Serializable {
+public class Trailer {
 
     private String key;
     private String site;

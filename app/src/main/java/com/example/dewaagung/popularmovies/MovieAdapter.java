@@ -59,6 +59,7 @@ public class MovieAdapter extends RecyclerView.Adapter<MovieAdapter.MyViewHolder
                 }
             }
         });
+
     }
 
     @Override
@@ -87,6 +88,7 @@ public class MovieAdapter extends RecyclerView.Adapter<MovieAdapter.MyViewHolder
     }
 
     public class MyViewHolder extends RecyclerView.ViewHolder {
+
         ImageView image_banner;
 
         public MyViewHolder(View itemView) {

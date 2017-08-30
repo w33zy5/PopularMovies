@@ -15,7 +15,6 @@ import static com.example.dewaagung.popularmovies.MainActivity.KEY_ARG_MOVIE;
 
 public class DetailMovieActivity extends AppCompatActivity {
 
-
     FragmentDetailMovie fragmentDetailMovie;
     private static final String LOG_TAG = DetailMovieActivity.class.getSimpleName();
 
@@ -40,6 +39,7 @@ public class DetailMovieActivity extends AppCompatActivity {
             }
         }
     }
+
     @Override
     protected void onStart() {
         super.onStart();
@@ -48,5 +48,4 @@ public class DetailMovieActivity extends AppCompatActivity {
             fragmentDetailMovie.updateReviews();
         }
     }
-
 }

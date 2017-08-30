@@ -48,6 +48,7 @@ public class ReviewsService extends IntentService {
 
         mReviews = getReviews(movie_id);
 
+
         Bundle resultBundle = new Bundle();
         resultBundle.putSerializable(KEY_RESULT_REVIEWS, mReviews);
         ResultReceiver resRec = intent.getParcelableExtra(KEY_RECEIVER);
@@ -55,9 +56,7 @@ public class ReviewsService extends IntentService {
         resRec.send(101, resultBundle);
     }
 
-
     ArrayList<Review> getReviews(String movie_id){
-
         HttpURLConnection urlConnection = null;
         BufferedReader reader = null;
 
@@ -114,7 +113,6 @@ public class ReviewsService extends IntentService {
         final String REVIEW_AUTHOR = "author";
         final String REVIEW_CONTENT = "content";
 
-
         ArrayList<Review> reviews = new ArrayList<>();
 
         JSONObject jsonData = new JSONObject(json);
@@ -123,11 +121,12 @@ public class ReviewsService extends IntentService {
         for (int i = 0; i < results.length(); i++) {
             Review review = new Review();
             JSONObject jsonReview = results.getJSONObject(i);
+
             review.setAuthor(jsonReview.getString(REVIEW_AUTHOR));
             review.setContent(jsonReview.getString(REVIEW_CONTENT));
+
             reviews.add(review);
         }
-
         return reviews;
     }
 }

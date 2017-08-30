@@ -105,7 +105,9 @@ public class TrailersService extends IntentService {
                 }
             }
         }
+
         return null;
+
     }
 
     private ArrayList<Trailer> parseJsonTrailers(String json) throws JSONException, ParseException {

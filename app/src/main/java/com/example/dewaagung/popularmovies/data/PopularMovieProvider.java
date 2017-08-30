@@ -14,7 +14,7 @@ import android.support.annotation.Nullable;
  */
 
 public class PopularMovieProvider extends ContentProvider {
-
+    
     private static final UriMatcher sUriMatcher = buildUriMatcher();
     private PopularMovieDbHelper mOpenHelper;
 
@@ -167,7 +167,6 @@ public class PopularMovieProvider extends ContentProvider {
         return rowsUpdated;
     }
 
-
     @Override
     public int bulkInsert(Uri uri, ContentValues[] values) {
         final SQLiteDatabase db = mOpenHelper.getWritableDatabase();
@@ -192,5 +191,12 @@ public class PopularMovieProvider extends ContentProvider {
             default:
                 return super.bulkInsert(uri, values);
         }
+    }
+
+    @Override
+    @TargetApi(11)
+    public void shutdown() {
+        mOpenHelper.close();
+        super.shutdown();
     }
 }

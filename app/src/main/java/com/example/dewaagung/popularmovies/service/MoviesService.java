@@ -65,7 +65,6 @@ public class MoviesService extends IntentService {
             while (cursor != null && cursor.moveToNext()) {
                 mMovies.add(new Movie(cursor));
             }
-
         }
 
         Bundle resultBundle = new Bundle();
@@ -74,7 +73,6 @@ public class MoviesService extends IntentService {
 
         resRec.send(101, resultBundle);
     }
-
 
     private ArrayList<Movie> getMovies(String path_key) {
         String path;
@@ -87,7 +85,7 @@ public class MoviesService extends IntentService {
 
         String resultJsonStr;
         try {
-            String strURL = TheMoviesDBAPI.URL_DEFAULT + path + "?" + PARAM_KEY_API + "=" + BuildConfig.THE_MOVIEDB_API_KEY;
+            String strURL = URL_DEFAULT + path + "?" + PARAM_KEY_API + "=" + BuildConfig.THE_MOVIEDB_API_KEY;
             URL url = new URL(strURL);
             urlConnection = (HttpURLConnection) url.openConnection();
             urlConnection.setRequestMethod("GET");
@@ -166,7 +164,6 @@ public class MoviesService extends IntentService {
 
             movies.add(movie);
         }
-
         return movies;
     }
 }

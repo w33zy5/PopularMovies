@@ -41,14 +41,12 @@ public class ReviewAdapter extends RecyclerView.Adapter<ReviewAdapter.MyViewHold
 
         holder.tv_author.setText(mReviews.get(position).getAuthor());
         holder.tv_content.setText(mReviews.get(position).getContent());
-
     }
 
     @Override
     public int getItemCount() {
         return mReviews.size();
     }
-
 
     public void clear() {
         mReviews.clear();
@@ -74,4 +72,3 @@ public class ReviewAdapter extends RecyclerView.Adapter<ReviewAdapter.MyViewHold
         }
     }
 }
-

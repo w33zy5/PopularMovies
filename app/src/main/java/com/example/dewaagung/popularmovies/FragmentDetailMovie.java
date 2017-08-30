@@ -70,6 +70,8 @@ public class FragmentDetailMovie extends Fragment {
         View rootView = inflater.inflate(R.layout.fragment_detail_movie, container, false);
         ViewHolder viewHolder = new ViewHolder(rootView);
         rootView.setTag(viewHolder);
+
+
         return rootView;
     }
 
@@ -118,7 +120,6 @@ public class FragmentDetailMovie extends Fragment {
                 } else {
                     holder.iv_star.setImageResource(FAVORITE_ON_ID);
                     mMovie.setFavorite(true);
-                    // insert
                     getContext().getContentResolver().insert(PopularMovieContract.MovieEntry.CONTENT_URI, mMovie.getContentValues());
                 }
             }
@@ -148,7 +149,6 @@ public class FragmentDetailMovie extends Fragment {
         }
 
         super.onViewCreated(view, savedInstanceState);
-
     }
 
     @Override
@@ -186,11 +186,11 @@ public class FragmentDetailMovie extends Fragment {
         return null;
     }
 
-
     public void updateReviews() {
-
         try {
+
             MyReviewReceiver reviewReceiver = new MyReviewReceiver(new Handler());
+
             Intent intent = new Intent(getActivity(), ReviewsService.class);
             intent.putExtra(ReviewsService.MOVIE_ID_QUERY_EXTRA, String.valueOf(mMovie.getMovieId()));
             intent.putExtra(KEY_RECEIVER, reviewReceiver);
